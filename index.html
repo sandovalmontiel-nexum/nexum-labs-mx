@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nexum Labs MX: software educativo, servicios profesionales y cursos prácticos de inteligencia artificial.">
+<title>Nexum Labs MX | Tecnología, servicios y formación en IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07101f;--bg2:#0b1830;--panel:#101f38;--panel2:#122744;--text:#f7fbff;--muted:#aebdd0;--cyan:#12d8e8;--blue:#2187ff;--line:rgba(255,255,255,.11);--white:#fff;--max:1180px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,Arial,sans-serif;background:#fff;color:#101a2a;line-height:1.6}a{text-decoration:none;color:inherit}.container{max-width:var(--max);margin:auto;padding:0 28px}
+header{position:sticky;top:0;z-index:50;background:rgba(5,13,26,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:30px}.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.06em;color:#fff}.mark{width:38px;height:38px;position:relative}.mark:before,.mark:after{content:"";position:absolute;width:11px;height:34px;border-radius:8px;transform:rotate(42deg);top:2px;left:13px}.mark:before{background:linear-gradient(180deg,var(--cyan),#256dff)}.mark:after{background:linear-gradient(180deg,#256dff,var(--cyan));transform:rotate(-42deg);opacity:.9}.brand small{display:block;font-size:10px;letter-spacing:.28em;color:#a9c1da;margin-top:-2px}.links{display:flex;gap:27px;align-items:center;font-size:14px;font-weight:600;color:#b8c8da}.links a:hover{color:#fff}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:11px;padding:13px 20px;font-weight:700;font-size:14px;transition:.2s}.btn-primary{background:linear-gradient(135deg,var(--cyan),#1d86ff);color:#04101d;box-shadow:0 10px 30px rgba(20,184,255,.22)}.btn-primary:hover{transform:translateY(-2px)}.btn-outline{border:1px solid rgba(255,255,255,.28);color:#fff}.menu{display:none;background:none;border:0;color:#fff;font-size:28px}
+.hero{background:radial-gradient(circle at 75% 30%,rgba(18,216,232,.16),transparent 27%),radial-gradient(circle at 90% 70%,rgba(33,135,255,.22),transparent 30%),linear-gradient(135deg,#061020,#0a1b34 60%,#061020);color:#fff;min-height:690px;display:flex;align-items:center;overflow:hidden}.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;padding:80px 0}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--cyan);font-weight:800;margin-bottom:20px}.hero h1{font-size:clamp(48px,6vw,78px);line-height:1.02;letter-spacing:-.055em;max-width:650px}.hero h1 span{color:var(--cyan)}.hero p{font-size:18px;color:#c2d0df;max-width:630px;margin:25px 0 30px}.actions{display:flex;gap:13px;flex-wrap:wrap}.micro{display:flex;gap:24px;flex-wrap:wrap;margin-top:26px;color:#a9c1d6;font-size:12px}.visual{height:410px;border:1px solid rgba(18,216,232,.35);border-radius:28px;background:linear-gradient(145deg,rgba(25,60,105,.42),rgba(3,16,35,.82));position:relative;overflow:hidden;box-shadow:inset 0 0 70px rgba(30,122,255,.12),0 30px 80px rgba(0,0,0,.25)}.visual:before{content:"";position:absolute;inset:-20%;background:linear-gradient(115deg,transparent 47%,rgba(18,216,232,.28) 48%,transparent 49%),linear-gradient(20deg,transparent 47%,rgba(33,135,255,.25) 48%,transparent 49%);transform:rotate(-7deg)}.node{position:absolute;width:22px;height:22px;border-radius:50%;background:var(--cyan);box-shadow:0 0 28px var(--cyan)}.n1{top:55px;left:70px}.n2{top:95px;right:75px}.n3{bottom:65px;left:85px}.n4{bottom:92px;right:68px}.n5{top:190px;left:50%;background:#2d7bff}.N{position:absolute;inset:0;display:grid;place-items:center;font-size:180px;font-weight:800;color:transparent;-webkit-text-stroke:3px #13d9e7;text-shadow:24px 18px 0 rgba(33,135,255,.35);opacity:.9}.visual-label{position:absolute;bottom:22px;left:28px;font-size:11px;color:#a9dce8;letter-spacing:.12em;text-transform:uppercase}
+.strip{background:#fff;border-bottom:1px solid #e7edf4}.strip-grid{display:grid;grid-template-columns:repeat(3,1fr)}.strip-item{padding:27px 30px;border-right:1px solid #e5ebf2}.strip-item:last-child{border:0}.strip-item strong{display:block;font-size:17px}.strip-item span{color:#66758a;font-size:13px}
+.section{padding:100px 0}.dark{background:linear-gradient(180deg,#071224,#0a1930);color:#fff}.section-head{text-align:center;max-width:760px;margin:0 auto 55px}.kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:#13bccc}.section h2{font-size:clamp(34px,4vw,54px);line-height:1.08;letter-spacing:-.04em;margin:10px 0 16px}.section-head p{color:#69798d}.dark .section-head p{color:#aebdd0}
+.product{display:grid;grid-template-columns:.9fr 1.1fr;gap:45px;align-items:center}.product-copy h3{font-size:48px;letter-spacing:-.04em}.product-copy h3 span{color:#10bfcf}.lead{font-size:18px;color:#53657a;margin:10px 0 24px}.checklist{list-style:none;display:grid;gap:12px;color:#4e6074}.checklist li:before{content:"✓";color:#0aaab8;font-weight:800;margin-right:10px}.product-card{background:linear-gradient(145deg,#0d203d,#071326);border-radius:24px;padding:25px;border:1px solid rgba(24,198,225,.24);box-shadow:0 25px 60px rgba(3,17,36,.18)}.appbar{height:34px;display:flex;gap:6px;align-items:center;color:#9ab0c9;font-size:11px}.dot{width:7px;height:7px;border-radius:50%;background:#516a86}.mock{background:#f6f8fb;border-radius:15px;min-height:320px;color:#142033;padding:25px}.mock h4{font-size:25px}.mock p{font-size:13px;color:#617187;margin:8px 0 20px}.mockbox{border:1px dashed #a9b9ca;border-radius:12px;padding:18px;margin-top:12px}.mockrow{display:flex;gap:12px}.mockinput{height:42px;background:#e8edf3;border-radius:8px;flex:1}.mockbutton{height:42px;background:#17cddd;border-radius:8px;width:125px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{padding:30px;border:1px solid #e0e8f1;border-radius:18px;background:#fff;box-shadow:0 10px 35px rgba(20,40,70,.05)}.card .num{font-size:11px;color:#08a9bb;font-weight:800;letter-spacing:.15em}.card h3{font-size:22px;margin:15px 0 9px}.card p{font-size:14px;color:#68788c}.card a{display:inline-block;margin-top:22px;color:#0874c7;font-size:13px;font-weight:700}.dark .card{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)}.dark .card p{color:#afbdd0}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.step{text-align:center;padding:10px}.circle{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;margin:0 auto 14px;background:#dff8f8;color:#087d88;font-weight:800}.step h3{font-size:16px}.step p{font-size:12px;color:#6b7c8f;margin-top:5px}
+.market{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.market h2{text-align:left}.market p{color:#64748a}.tags{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tag{padding:17px 19px;border:1px solid #dfe7ef;border-radius:12px;background:#f9fbfd;font-weight:700;font-size:14px}.tag span{color:#0b9cad;margin-right:6px}
+.cta{background:linear-gradient(135deg,#071328,#0d2a51 55%,#062039);color:#fff;border-radius:28px;padding:55px;display:flex;align-items:center;justify-content:space-between;gap:35px;position:relative;overflow:hidden}.cta:after{content:"";position:absolute;width:360px;height:360px;border-radius:50%;right:-100px;top:-170px;background:rgba(18,216,232,.14);filter:blur(10px)}.cta h2{font-size:42px;max-width:700px}.cta p{color:#b8c8da;margin-top:8px;max-width:700px}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px}.service-grid .card{height:100%;display:flex;flex-direction:column}.service-grid .card a{margin-top:auto;padding-top:22px}.contact-box{padding:30px;border:1px solid #dfe7ef;border-radius:18px}.contact-box h3{font-size:24px;margin-bottom:8px}.contact-box p{color:#66758a}.form{display:grid;gap:12px}.form input,.form textarea{width:100%;border:1px solid #d7e0ea;border-radius:10px;padding:13px;font:inherit}.form textarea{min-height:120px;resize:vertical}.form select{width:100%;border:1px solid #d7e0ea;border-radius:10px;padding:13px;font:inherit;background:#fff}.form-note{font-size:12px;color:#718096;margin-top:-2px}
+footer{background:#050c18;color:#a9b8ca;padding:55px 0 25px}.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:40px}.foot h4{color:#fff;margin-bottom:14px}.foot a{display:block;font-size:13px;margin:8px 0}.copyright{border-top:1px solid rgba(255,255,255,.09);margin-top:40px;padding-top:20px;font-size:12px;display:flex;justify-content:space-between}
+@media(max-width:850px){.links{display:none}.menu{display:block}.hero-grid,.product,.market,.contact-grid{grid-template-columns:1fr}.hero{min-height:auto}.visual{height:330px}.strip-grid,.cards{grid-template-columns:1fr}.strip-item{border-right:0;border-bottom:1px solid #e5ebf2}.flow{grid-template-columns:1fr 1fr}.cta{padding:35px;display:block}.cta .btn{margin-top:25px}.foot{grid-template-columns:1fr 1fr 1fr}.hero h1{font-size:50px}}
+@media(max-width:520px){.container{padding:0 18px}.nav{height:68px}.brand small{display:none}.hero-grid{padding:65px 0;gap:35px}.hero h1{font-size:43px}.section{padding:70px 0}.flow{grid-template-columns:1fr}.tags{grid-template-columns:1fr}.foot{grid-template-columns:1fr}.copyright{display:block}.copyright span{display:block;margin-top:8px}}
+
+.course-card{display:flex;flex-direction:column}.course-list{list-style:none;margin:18px 0;display:grid;gap:8px;color:#53657a;font-size:14px}.course-list li:before{content:"✓";color:#0aaab8;font-weight:800;margin-right:9px}.course-modes{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 20px}.course-modes span{font-size:12px;font-weight:700;padding:8px 10px;border:1px solid #dfe7ef;border-radius:9px;background:#f8fbfd}.course-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}.course-outline{border:1px solid #b9c8d8;color:#0a5e9b}.institution-box{margin-top:24px;padding:34px;border-radius:20px;background:linear-gradient(135deg,#071328,#0d2a51);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:30px}.institution-box h3{font-size:25px;margin:6px 0}.institution-box p{color:#b8c8da;max-width:680px;font-size:14px}.institution-box .kicker{margin-bottom:0}.institution-box .btn{flex-shrink:0}@media(max-width:850px){.institution-box{display:block}.institution-box .btn{margin-top:22px}}@media(max-width:520px){.course-actions .btn{width:100%}}
+
+
+.analytics-section{background:#f5f8fb;padding:65px 0}.analytics-box{background:#071328;color:#fff;border-radius:22px;padding:38px;display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center}.analytics-box h2{font-size:32px;line-height:1.15;margin:8px 0}.analytics-box p{color:#b8c8da;margin:0}.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.metric-grid div{padding:18px;background:#0c203d;border:1px solid #1d3a61;border-radius:14px}.metric-grid strong{display:block;color:#39d7cf;font-size:18px;margin-bottom:4px}.metric-grid span{display:block;color:#b8c8da;font-size:12px}@media(max-width:850px){.analytics-box{grid-template-columns:1fr}}@media(max-width:520px){.metric-grid{grid-template-columns:1fr}}
+
+</style>
+
+<!-- Analytics placeholder: replace YOUR-DOMAIN after publishing -->
+<script defer data-domain="YOUR-DOMAIN" src="https://plausible.io/js/script.js"></script>
+
+</head>
+<body>
+<header><div class="container nav"><a class="brand" href="#inicio"><span class="mark"></span><span>NEXUM<small>LABS MX</small></span></a><nav class="links"><a href="#inicio">Inicio</a><a href="#edudocia">EduDocIA</a><a href="#servicios">Servicios</a><a href="#cursos">Cursos</a><a href="#nosotros">Nosotros</a><a href="#recursos">Recursos</a><a href="#contacto">Contacto</a></nav><a class="btn btn-primary" href="#edudocia">Probar EduDocIA</a><button class="menu" aria-label="Menú">☰</button></div></header>
+<main>
+<section class="hero" id="inicio"><div class="container hero-grid"><div><div class="eyebrow">Tecnología desarrollada en México · soluciones con IA</div><h1>Tecnología que <span>convierte</span> problemas en soluciones.</h1><p>Desarrollamos herramientas digitales con inteligencia artificial para automatizar procesos, organizar información y hacer más eficiente el trabajo de las personas.</p><div class="actions"><a class="btn btn-primary" href="#edudocia">Conoce EduDocIA →</a><a class="btn btn-outline" href="#servicios">Ver servicios</a></div><div class="micro"><span>✦ IA aplicada a problemas reales.</span><span>✓ El usuario mantiene el control.</span></div></div><div class="visual"><span class="node n1"></span><span class="node n2"></span><span class="node n3"></span><span class="node n4"></span><span class="node n5"></span><div class="N">N</div><div class="visual-label">Ideas · IA · Soluciones</div></div></div></section>
+<div class="strip"><div class="container strip-grid"><div class="strip-item"><strong>Inteligencia artificial</strong><span>Aplicamos IA donde realmente aporta valor.</span></div><div class="strip-item"><strong>Automatización</strong><span>Convertimos procesos repetitivos en flujos eficientes.</span></div><div class="strip-item"><strong>Soluciones reales</strong><span>Herramientas orientadas a problemas concretos.</span></div></div></div>
+<section class="section" id="edudocia"><div class="container product"><div class="product-copy"><div class="kicker">Nuestro primer producto · beta activa</div><h3>EduDoc<span>IA</span></h3><p class="lead">Menos tiempo creando documentos. <strong>Más tiempo para enseñar.</strong></p><p style="color:#607086;margin-bottom:20px">EduDocIA transforma documentos curriculares e información institucional en documentos de trabajo estructurados, utilizando IA como asistente para reducir tareas repetitivas.</p><ul class="checklist"><li>Documento curricular en PDF</li><li>Plantilla Word institucional</li><li>Datos administrativos del docente</li><li>Generación de Word editable</li></ul><div class="actions" style="margin-top:28px"><a class="btn btn-primary" href="https://edudoc-ia-beta.streamlit.app/" target="_blank">Probar EduDocIA Beta →</a><a class="btn" style="border:1px solid #cbd7e4" href="#flujo">Ver cómo funciona</a></div></div><div class="product-card"><div class="appbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span style="margin-left:8px">EduDocIA — Beta</span></div><div class="mock"><h4>EduDocIA — V22.5.0-BETA.2</h4><p>Generador multiplantilla de planeaciones educativas con IA y exportación a Word institucional.</p><div class="mockbox"><strong>01 · Carga</strong><p>Sube el documento curricular en PDF.</p><div class="mockrow"><div class="mockinput"></div><div class="mockbutton"></div></div></div><div class="mockbox"><strong>02 · Plantilla + datos</strong><p>Selecciona la plantilla e ingresa los datos del docente.</p></div></div></div></div></section>
+<section class="section dark" id="servicios"><div class="container"><div class="section-head"><div class="kicker">Servicios profesionales</div><h2>Soluciones que puedes contratar.</h2><p>Aplicamos IA, revisión especializada y automatización para ayudarte a mejorar documentos, procesos académicos y tareas profesionales.</p></div><div class="cards service-grid"><article class="card"><div class="num">01</div><h3>Revisión de artículos científicos</h3><p>Revisión de redacción académica, estructura, coherencia, referencias y preparación del manuscrito para envío.</p><a href="#contacto" data-track="service_interest" data-service="Revisión de artículo científico">Solicitar servicio →</a></article><article class="card"><div class="num">02</div><h3>Tesis y trabajos de investigación</h3><p>Apoyo en estructura, metodología, redacción, consistencia, tablas, referencias y presentación académica.</p><a href="#contacto" data-track="service_interest" data-service="Revisión y apoyo en tesis">Solicitar servicio →</a></article><article class="card"><div class="num">03</div><h3>Exámenes y bancos de preguntas</h3><p>Diseño y revisión de reactivos, respuestas, niveles de dificultad, rúbricas y versiones para evaluación.</p><a href="#contacto" data-track="service_interest" data-service="Elaboración o revisión de exámenes">Solicitar servicio →</a></article><article class="card"><div class="num">04</div><h3>Documentos académicos</h3><p>Apoyo para ensayos, reportes, protocolos, proyectos, materiales didácticos y otros documentos profesionales.</p><a href="#contacto" data-track="service_interest" data-service="Documento académico">Solicitar servicio →</a></article><article class="card"><div class="num">05</div><h3>Análisis y procesamiento de documentos</h3><p>Extraemos, organizamos y transformamos información dispersa en resultados claros y estructurados.</p><a href="#contacto" data-track="service_interest" data-service="Análisis y procesamiento de documentos">Solicitar servicio →</a></article><article class="card"><div class="num">06</div><h3>Automatización de procesos</h3><p>Convertimos tareas repetitivas en flujos digitales para ahorrar tiempo y reducir trabajo administrativo.</p><a href="#contacto" data-track="service_interest" data-service="Automatización de procesos">Solicitar servicio →</a></article></div></div></section>
+
+<section class="section" id="cursos" style="background:#f5f8fb">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Formación práctica</div>
+      <h2>Aprende a utilizar la IA.</h2>
+      <p>Cursos y talleres diseñados para aplicar la inteligencia artificial en el trabajo, la educación y la vida profesional.</p>
+    </div>
+    <div class="cards">
+      <article class="card course-card">
+        <div class="num">CURSO 01</div>
+        <h3>IA para Profesores</h3>
+        <p>Aprende a utilizar inteligencia artificial para ahorrar tiempo y mejorar la planeación, las actividades, los exámenes, las rúbricas y los materiales didácticos.</p>
+        <ul class="course-list">
+          <li>Planeaciones y actividades</li>
+          <li>Exámenes y bancos de preguntas</li>
+          <li>Rúbricas y evaluación</li>
+          <li>Material didáctico y presentaciones</li>
+          <li>Uso responsable de IA en educación</li>
+        </ul>
+        <div class="course-modes">
+          <span>🧑‍🏫 Taller presencial</span>
+          <span>💻 Próximamente en línea</span>
+        </div>
+        <div class="course-actions">
+          <a class="btn btn-primary" href="#contacto" data-track="course_interest" data-course="IA para Profesores — modalidad presencial">Quiero tomarlo presencial</a>
+          <a class="btn course-outline" href="#contacto" data-track="course_interest" data-course="IA para Profesores — versión en línea">Me interesa la versión en línea</a>
+        </div>
+      </article>
+      <article class="card course-card">
+        <div class="num">CURSO 02</div>
+        <h3>Aprende a usar IA sin morir en el intento</h3>
+        <p>Un curso práctico para comprender y aprovechar las herramientas de inteligencia artificial sin necesidad de conocimientos técnicos previos.</p>
+        <ul class="course-list">
+          <li>Qué es y qué puede hacer la IA</li>
+          <li>Cómo escribir mejores prompts</li>
+          <li>IA para trabajo y estudio</li>
+          <li>Creación y organización de contenido</li>
+          <li>Automatización y uso responsable</li>
+        </ul>
+        <div class="course-modes">
+          <span>🧑‍🏫 Taller presencial</span>
+          <span>💻 Próximamente en línea</span>
+        </div>
+        <div class="course-actions">
+          <a class="btn btn-primary" href="#contacto" data-track="course_interest" data-course="Aprende a usar IA sin morir en el intento — modalidad presencial">Quiero tomarlo presencial</a>
+          <a class="btn course-outline" href="#contacto" data-track="course_interest" data-course="Aprende a usar IA sin morir en el intento — versión en línea">Me interesa la versión en línea</a>
+        </div>
+      </article>
+    </div>
+    <div class="institution-box">
+      <div>
+        <div class="kicker">Para escuelas e instituciones</div>
+        <h3>¿Quieres llevar uno de estos cursos a tu institución?</h3>
+        <p>Podemos adaptar talleres presenciales a las necesidades de docentes, estudiantes, equipos de trabajo o grupos profesionales.</p>
+      </div>
+      <a class="btn btn-primary" href="#contacto" data-track="course_interest" data-course="Curso o taller para una institución">Solicitar curso para mi institución →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="flujo"><div class="container"><div class="section-head"><div class="kicker">Flujo de trabajo</div><h2>¿Cómo funciona EduDocIA?</h2><p>Un proceso sencillo de cinco pasos.</p></div><div class="flow"><div class="step"><div class="circle">01</div><h3>Carga</h3><p>Sube el documento curricular en PDF.</p></div><div class="step"><div class="circle">02</div><h3>Plantilla</h3><p>Selecciona o carga tu plantilla Word institucional.</p></div><div class="step"><div class="circle">03</div><h3>Datos</h3><p>Ingresa plantel, docente, grupo, carrera y fechas.</p></div><div class="step"><div class="circle">04</div><h3>IA</h3><p>La inteligencia artificial procesa la información.</p></div><div class="step"><div class="circle">05</div><h3>Generación</h3><p>Obtén el Word institucional para revisar.</p></div></div></div></section>
+<section class="section" style="background:#f5f8fb"><div class="container market"><div><div class="kicker">Mercado inicial</div><h2>Diseñado para docentes de educación media superior.</h2><p>EduDocIA comienza con procesos y plantillas institucionales de educación media superior, con posibilidad de crecer hacia otros niveles y necesidades.</p></div><div class="tags"><div class="tag"><span>✓</span> CONALEP</div><div class="tag"><span>✓</span> CETIS / CBTIS</div><div class="tag"><span>✓</span> DGETI</div><div class="tag"><span>✓</span> Colegio de Bachilleres</div><div class="tag"><span>✓</span> Plantillas personalizadas</div><div class="tag"><span>↗</span> Próximamente otros niveles</div></div></div></section>
+<section class="section" id="nosotros"><div class="container"><div class="section-head"><div class="kicker">Nexum Labs MX</div><h2>Tecnología con propósito.</h2><p>Nexum Labs MX desarrolla soluciones digitales basadas en inteligencia artificial, automatización y procesamiento inteligente de información.</p></div><div class="cards"><article class="card"><h3>IA como asistente</h3><p>La tecnología ayuda a procesar información; las personas mantienen la decisión y el control.</p></article><article class="card"><h3>Problemas antes que tecnología</h3><p>Partimos de procesos reales y buscamos soluciones simples, útiles y medibles.</p></article><article class="card"><h3>Desarrollo en México</h3><p>Conectamos conocimiento, tecnología e innovación para crear herramientas útiles.</p></article></div></div></section>
+<section class="section" id="recursos" style="background:#f5f8fb"><div class="container"><div class="section-head"><div class="kicker">Recursos</div><h2>Ideas, tecnología y aprendizaje.</h2><p>Contenido y herramientas para aprovechar la inteligencia artificial de manera práctica y responsable.</p></div><div class="cards"><article class="card"><div class="num">IA</div><h3>Inteligencia artificial aplicada</h3><p>Conceptos y casos de uso para convertir la IA en una herramienta práctica.</p></article><article class="card"><div class="num">EDU</div><h3>Tecnología educativa</h3><p>Herramientas y estrategias para mejorar procesos docentes.</p></article><article class="card"><div class="num">LAB</div><h3>Innovación</h3><p>Proyectos y soluciones desarrolladas por Nexum Labs MX.</p></article></div></div></section>
+<section class="section"><div class="container"><div class="cta"><div><div class="kicker">Nexum Labs MX</div><h2>¿Tienes un problema que podamos convertir en una solución?</h2><p>Cuéntanos qué proceso quieres automatizar, organizar o mejorar.</p></div><a class="btn btn-primary" href="#contacto">Hablar con Nexum →</a></div></div></section>
+<section class="section" id="contacto" style="padding-top:50px"><div class="container contact-grid"><div><div class="kicker">Contacto</div><h2>Cuéntanos tu idea.</h2><p style="color:#65758a;margin-top:12px">Si necesitas un servicio profesional, quieres tomar uno de nuestros cursos o tienes una idea de herramienta digital, podemos analizarla.</p><p style="margin-top:20px;font-weight:700">Nexum Labs MX</p><p style="color:#65758a">Tecnología desarrollada en México.</p></div><div class="contact-box"><h3>Primer contacto</h3><p style="margin-bottom:18px">Este formulario abre tu correo para enviar la solicitud.</p><form class="form" action="mailto:contacto@nexumlabs.mx" method="post" enctype="text/plain"><input name="nombre" placeholder="Nombre" required><input name="correo" type="email" placeholder="Correo electrónico" required><select name="servicio" id="servicio" required><option value="">Selecciona un servicio o curso</option><option>Revisión de artículo científico</option><option>Revisión y apoyo en tesis</option><option>Elaboración o revisión de exámenes</option><option>Documento académico</option><option>Análisis y procesamiento de documentos</option><option>Automatización de procesos</option><option>IA para Profesores — modalidad presencial</option>
+<option>IA para Profesores — versión en línea</option>
+<option>Aprende a usar IA sin morir en el intento — modalidad presencial</option>
+<option>Aprende a usar IA sin morir en el intento — versión en línea</option>
+<option>Curso o taller para una institución</option><option>Otro / quiero asesoría</option></select><textarea name="mensaje" id="mensaje" placeholder="Cuéntanos qué necesitas, qué curso te interesa o qué resultado buscas." required></textarea><p class="form-note">Si tu solicitud requiere revisar un archivo, podremos indicarte cómo enviarlo después del primer contacto.</p><button class="btn btn-primary" type="submit">Enviar solicitud →</button></form></div></div></section>
+</main>
+
+<section class="section analytics-section" id="metricas">
+  <div class="container">
+    <div class="analytics-box">
+      <div>
+        <div class="kicker">MEDICIÓN INTELIGENTE</div>
+        <h2>Medimos qué genera más interés.</h2>
+        <p>Esta versión está preparada para registrar visitas y eventos clave cuando el sitio se publique con la analítica configurada.</p>
+      </div>
+      <div class="metric-grid">
+        <div><strong data-local-counter="visits">—</strong><span>Visitas locales de prueba</span></div>
+        <div><strong>EduDocIA</strong><span>Clics registrados</span></div>
+        <div><strong>Servicios</strong><span>Interés registrado</span></div>
+        <div><strong>Cursos</strong><span>Interés registrado</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="container"><div class="foot"><div><a class="brand" href="#inicio"><span class="mark"></span><span>NEXUM<small>LABS MX</small></span></a><p style="margin-top:15px;font-size:13px">Tecnología que convierte posibilidades en soluciones.</p></div><div><h4>Productos</h4><a href="#edudocia">EduDocIA</a><a href="#edudocia">Beta</a></div><div><h4>Servicios</h4><a href="#servicios">Artículos científicos</a><a href="#servicios">Tesis</a><a href="#servicios">Exámenes</a><a href="#servicios">Automatización</a></div><div><h4>Cursos</h4><a href="#cursos">IA para Profesores</a><a href="#cursos">Aprende a usar IA</a><a href="#cursos">Talleres institucionales</a></div><div><h4>Empresa</h4><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a><a href="#recursos">Recursos</a></div></div><div class="copyright"><span>© 2026 Nexum Labs MX. Todos los derechos reservados.</span><span>Tecnología desarrollada en México.</span></div></div></footer>
+<script>document.querySelectorAll('[data-service],[data-course]').forEach(function(link){link.addEventListener('click',function(){var s=document.getElementById('servicio');var m=document.getElementById('mensaje');var value=link.getAttribute('data-service')||link.getAttribute('data-course');if(s){s.value=value}if(m){m.focus()}})});</script>
+<script>
+(function(){
+  const visitKey="nexum_v6_visits";
+  const visits=Number(localStorage.getItem(visitKey)||0)+1;
+  localStorage.setItem(visitKey,visits);
+  document.querySelectorAll('[data-local-counter="visits"]').forEach(el=>el.textContent=visits);
+
+  function track(name,props){
+    if(window.plausible) window.plausible(name,{props:props||{}});
+    try{
+      const key="nexum_v6_events";
+      const arr=JSON.parse(localStorage.getItem(key)||"[]");
+      arr.push({event:name,props:props||{},at:new Date().toISOString()});
+      localStorage.setItem(key,JSON.stringify(arr.slice(-200)));
+    }catch(e){}
+  }
+  track("page_view",{page:location.pathname||"home"});
+  document.addEventListener("click",function(e){
+    const el=e.target.closest("[data-track]"); if(!el)return;
+    const p={label:(el.textContent||"").trim().slice(0,100)};
+    if(el.dataset.service)p.service=el.dataset.service;
+    if(el.dataset.course)p.course=el.dataset.course;
+    if(el.dataset.edudociaLink)p.destination="EduDocIA Beta";
+    track(el.dataset.track,p);
+  });
+  document.addEventListener("submit",function(e){
+    const f=e.target;
+    if(f&&f.id==="contactForm"){
+      const s=f.querySelector("#servicio");
+      track("contact_request",{interest:s?s.value:"general"});
+    }
+  });
+})();
+</script>
+
+</body></html>

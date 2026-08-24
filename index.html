@@ -35,6 +35,26 @@ footer{background:#050c18;color:#a9b8ca;padding:55px 0 25px}.foot{display:grid;g
 <script defer data-domain="YOUR-DOMAIN" src="https://plausible.io/js/script.js"></script>
 
   <script src="analytics.js" defer></script>
+
+<!-- Nexum Labs MX V9 — Google Analytics 4 -->
+<script>
+  window.NEXUM_GA4_ID = "YOUR-GA4-ID";
+  if (window.NEXUM_GA4_ID && window.NEXUM_GA4_ID !== "YOUR-GA4-ID") {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', window.NEXUM_GA4_ID, {
+      send_page_view: true,
+      anonymize_ip: true
+    });
+    const ga = document.createElement('script');
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(window.NEXUM_GA4_ID);
+    document.head.appendChild(ga);
+  }
+</script>
+<script src="analytics.js" defer></script>
+
 </head>
 <body>
 <header><div class="container nav"><a class="brand" href="#inicio"><span class="mark"></span><span>NEXUM<small>LABS MX</small></span></a><nav class="links"><a href="#inicio">Inicio</a><a href="#edudocia" data-track="edudocia_click" data-analytics="edudocia_click" data-analytics-label="EduDocIA">EduDocIA</a><a href="#servicios" data-track="services_click" data-analytics="services_click" data-analytics-label="Servicios">Servicios</a><a href="#cursos" data-track="courses_click" data-analytics="courses_click" data-analytics-label="Cursos">Cursos</a><a href="#nosotros">Nosotros</a><a href="#recursos">Recursos</a><a href="#contacto" data-track="contact_click" data-analytics="contact_click" data-analytics-label="Contacto">Contacto</a></nav><a class="btn btn-primary" href="#edudocia" data-track="edudocia_click" data-analytics="edudocia_click" data-analytics-label="Probar EduDocIA">Probar EduDocIA</a><button class="menu" aria-label="Menú">☰</button></div></header>
@@ -138,16 +158,16 @@ footer{background:#050c18;color:#a9b8ca;padding:55px 0 25px}.foot{display:grid;g
 <script>document.querySelectorAll('[data-service],[data-course]').forEach(function(link){link.addEventListener('click',function(){var s=document.getElementById('servicio');var m=document.getElementById('mensaje');var value=link.getAttribute('data-service')||link.getAttribute('data-course');if(s){s.value=value}if(m){m.focus()}})});</script>
 <script>
 (function(){
-  const visitKey="nexum_v8_visits";
-  const eventsKey="nexum_v8_events";
-  const countersKey="nexum_v8_counters";
+  const visitKey="nexum_v9_visits";
+  const eventsKey="nexum_v9_events";
+  const countersKey="nexum_v9_counters";
 
   const visits=Number(localStorage.getItem(visitKey)||0)+1;
   localStorage.setItem(visitKey,visits);
 
   function getCounters(){
-    try{return JSON.parse(localStorage.getItem(countersKey)||'{"edudocia":0,"services":0,"courses":0}');}
-    catch(e){return {edudocia:0,services:0,courses:0};}
+    try{return JSON.parse(localStorage.getItem(countersKey)||'{"edudocia":0,"services":0,"courses":0,"contact":0}');}
+    catch(e){return {edudocia:0,services:0,courses:0,contact:0};}
   }
   function saveCounters(c){localStorage.setItem(countersKey,JSON.stringify(c));}
   function renderCounters(){
@@ -156,6 +176,7 @@ footer{background:#050c18;color:#a9b8ca;padding:55px 0 25px}.foot{display:grid;g
     document.querySelectorAll('[data-local-counter="edudocia"]').forEach(el=>el.textContent=c.edudocia||0);
     document.querySelectorAll('[data-local-counter="services"]').forEach(el=>el.textContent=c.services||0);
     document.querySelectorAll('[data-local-counter="courses"]').forEach(el=>el.textContent=c.courses||0);
+    document.querySelectorAll('[data-local-counter="contact"]').forEach(el=>el.textContent=c.contact||0);
   }
 
   function increment(category){
@@ -170,16 +191,29 @@ footer{background:#050c18;color:#a9b8ca;padding:55px 0 25px}.foot{display:grid;g
     if(eventName==='edudocia_click') return 'edudocia';
     if(eventName==='services_click'||eventName==='service_interest') return 'services';
     if(eventName==='courses_click'||eventName==='course_interest') return 'courses';
+    if(eventName==='contact_click'||eventName==='contact_request'||eventName==='generate_lead') return 'contact';
     return null;
   }
 
+  function gaEventName(eventName){
+    if(eventName==='contact_request'||eventName==='contact_click') return 'generate_lead';
+    if(eventName==='service_interest'||eventName==='course_interest') return 'select_item';
+    return eventName;
+  }
+
   function track(name,props){
-    if(window.plausible) window.plausible(name,{props:props||{}});
+    props=props||{};
     try{
       const arr=JSON.parse(localStorage.getItem(eventsKey)||'[]');
-      arr.push({event:name,props:props||{},at:new Date().toISOString()});
-      localStorage.setItem(eventsKey,JSON.stringify(arr.slice(-200)));
+      arr.push({event:name,props:props,at:new Date().toISOString(),path:location.pathname+location.hash});
+      localStorage.setItem(eventsKey,JSON.stringify(arr.slice(-500)));
     }catch(e){}
+    if(window.plausible) window.plausible(name,{props:props});
+    if(typeof window.gtag==="function" && window.NEXUM_GA4_ID!=="YOUR-GA4-ID"){
+      window.gtag('event',gaEventName(name),Object.assign({
+        nexum_event:name
+      },props));
+    }
   }
 
   renderCounters();
@@ -189,7 +223,10 @@ footer{background:#050c18;color:#a9b8ca;padding:55px 0 25px}.foot{display:grid;g
     const el=e.target.closest('[data-track]');
     if(!el)return;
     const eventName=el.dataset.track;
-    const p={label:(el.textContent||'').trim().slice(0,100)};
+    const p={
+      label:(el.textContent||'').trim().slice(0,100),
+      target:el.getAttribute('href')||''
+    };
     if(el.dataset.service)p.service=el.dataset.service;
     if(el.dataset.course)p.course=el.dataset.course;
     track(eventName,p);
@@ -200,15 +237,35 @@ footer{background:#050c18;color:#a9b8ca;padding:55px 0 25px}.foot{display:grid;g
     const f=e.target;
     if(f&&f.id==='contactForm'){
       const service=f.querySelector('#servicio');
-      track('contact_request',{interest:service?service.value:'general'});
+      const interest=service?service.value:'general';
+      track('contact_request',{interest:interest});
+      increment('contact');
     }
   });
+
+  window.NexumAnalyticsV9={
+    getLocalMetrics:function(){
+      let events=[];
+      try{events=JSON.parse(localStorage.getItem(eventsKey)||'[]')}catch(e){}
+      return {
+        visits:Number(localStorage.getItem(visitKey)||0),
+        counters:getCounters(),
+        events:events
+      };
+    },
+    resetLocalMetrics:function(){
+      localStorage.removeItem(visitKey);
+      localStorage.removeItem(eventsKey);
+      localStorage.removeItem(countersKey);
+      location.reload();
+    }
+  };
 })();
 </script>
 
 
 <section id="analytics-info" style="display:none" aria-hidden="true">
-  Nexum Labs MX V7 · analítica de visitas y eventos.
+  Nexum Labs MX V9 · analítica de visitas y eventos.
 </section>
 
 </body></html>
